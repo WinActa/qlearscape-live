@@ -9,8 +9,8 @@ export default function QlearScape() {
     setTimeout(() => {
       setFadeStyle({
         opacity: 1,
-        transform: "scale(1.02)",
-        transition: "opacity 0.8s ease-out, transform 0.8s ease-out"
+        transform: "scale(1.06)",
+        transition: "opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
       });
 
       setTimeout(() => {
@@ -18,7 +18,7 @@ export default function QlearScape() {
           ...prev,
           transform: "scale(1)"
         }));
-      }, 900);
+      }, 700);
     }, 100);
   }, []);
 
