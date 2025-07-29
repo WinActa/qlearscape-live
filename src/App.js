@@ -9,9 +9,16 @@ export default function QlearScape() {
     setTimeout(() => {
       setFadeStyle({
         opacity: 1,
-        transform: "scale(1)",
+        transform: "scale(1.02)",
         transition: "opacity 0.8s ease-out, transform 0.8s ease-out"
       });
+
+      setTimeout(() => {
+        setFadeStyle(prev => ({
+          ...prev,
+          transform: "scale(1)"
+        }));
+      }, 900);
     }, 100);
   }, []);
 
