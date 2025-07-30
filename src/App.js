@@ -45,17 +45,14 @@ export default function QlearScape() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-center p-8 font-sans transition-all duration-1000 ease-out transform">
+    <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 text-center font-sans p-8">
       <h1
-        className="text-4xl font-bold mb-2 text-blue-700"
+        className="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-500 to-pink-500 animate-pulse"
         style={fadeStyle}
       >
         QlearScape
       </h1>
-      <p
-        className="text-lg mb-10 text-blue-500"
-        style={fadeStyle}
-      >
+      <p className="text-lg mb-10 text-blue-500" style={fadeStyle}>
         Rewriting the rules of insurance efficiency. Built for agents. Powered by intelligence.
       </p>
 
@@ -65,7 +62,7 @@ export default function QlearScape() {
           placeholder="Enter property address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
-          className="w-full border border-gray-300 rounded p-3 mb-4 text-sm"
+          className="w-full border border-gray-300 rounded px-3 py-2 mb-4 text-sm"
         />
         <button
           onClick={handleSubmit}
@@ -76,28 +73,20 @@ export default function QlearScape() {
       </div>
 
       {report && (
-        <div className="text-left max-w-2xl mx-auto border-t pt-6 border-gray-200">
-          <h2 className="text-xl font-semibold mb-4">Qlear Property Report</h2>
-          <ul className="space-y-2 text-sm">
-            <li><strong>1. Purchase Date:</strong> {report.purchaseDate}</li>
-            <li><strong>2. Purchase Price:</strong> {report.purchasePrice}</li>
-            <li><strong>3. Construction Built Date:</strong> {report.builtDate}</li>
-            <li><strong>4. Market Value:</strong> {report.marketValue}</li>
-            <li><strong>5. Square Footage:</strong> {report.squareFootage}</li>
-            <li><strong>6. Beds & Baths:</strong> {report.bedsBaths}</li>
-            <li><strong>7. Type of Home:</strong> {report.homeType}</li>
-            <li>
-              <strong>8. Estimated Mortgage (PITI) Breakdown:</strong>
-              <ul className="ml-6 list-disc">
-                <li>Principal & Interest: {report.mortgageBreakdown.principalInterest}</li>
-                <li>Property Tax: {report.mortgageBreakdown.propertyTax}</li>
-                <li>Insurance: {report.mortgageBreakdown.insurance}</li>
-                <li>Total: {report.mortgageBreakdown.total}</li>
-              </ul>
-            </li>
-            <li><strong>9. County:</strong> {report.county}</li>
-            <li><strong>10. Flood Zone:</strong> {report.floodZone}</li>
-          </ul>
+        <div className="mt-8 text-left max-w-xl mx-auto bg-white/80 backdrop-blur-md ring-1 ring-gray-200 p-6 rounded-lg shadow-xl">
+          <p><strong>Purchase Date:</strong> {report.purchaseDate}</p>
+          <p><strong>Purchase Price:</strong> {report.purchasePrice}</p>
+          <p><strong>Built Date:</strong> {report.builtDate}</p>
+          <p><strong>Market Value:</strong> {report.marketValue}</p>
+          <p><strong>Square Footage:</strong> {report.squareFootage}</p>
+          <p><strong>Beds/Baths:</strong> {report.bedsBaths}</p>
+          <p><strong>Home Type:</strong> {report.homeType}</p>
+          <p><strong>Principal & Interest:</strong> {report.mortgageBreakdown.principalInterest}</p>
+          <p><strong>Property Tax:</strong> {report.mortgageBreakdown.propertyTax}</p>
+          <p><strong>Insurance:</strong> {report.mortgageBreakdown.insurance}</p>
+          <p><strong>Total:</strong> {report.mortgageBreakdown.total}</p>
+          <p><strong>County:</strong> {report.county}</p>
+          <p><strong>Flood Zone:</strong> {report.floodZone}</p>
         </div>
       )}
     </div>
