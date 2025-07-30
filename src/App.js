@@ -72,23 +72,27 @@ export default function QlearScape() {
         </button>
       </div>
 
-      {report && (
-        <div className="mt-8 text-left max-w-xl mx-auto bg-white/80 backdrop-blur-md ring-1 ring-gray-200 p-6 rounded-lg shadow-xl">
-          <p><strong>Purchase Date:</strong> {report.purchaseDate}</p>
-          <p><strong>Purchase Price:</strong> {report.purchasePrice}</p>
-          <p><strong>Built Date:</strong> {report.builtDate}</p>
-          <p><strong>Market Value:</strong> {report.marketValue}</p>
-          <p><strong>Square Footage:</strong> {report.squareFootage}</p>
-          <p><strong>Beds/Baths:</strong> {report.bedsBaths}</p>
-          <p><strong>Home Type:</strong> {report.homeType}</p>
-          <p><strong>Principal & Interest:</strong> {report.mortgageBreakdown.principalInterest}</p>
-          <p><strong>Property Tax:</strong> {report.mortgageBreakdown.propertyTax}</p>
-          <p><strong>Insurance:</strong> {report.mortgageBreakdown.insurance}</p>
-          <p><strong>Total:</strong> {report.mortgageBreakdown.total}</p>
-          <p><strong>County:</strong> {report.county}</p>
-          <p><strong>Flood Zone:</strong> {report.floodZone}</p>
-        </div>
-      )}
+{report && (
+  <div className="mt-10 mx-auto max-w-2xl bg-white border border-gray-200 rounded-xl shadow-md p-6 space-y-4">
+    <h2 className="text-xl font-bold text-gray-800 border-b pb-2 mb-4">🔍 Property Snapshot</h2>
+    <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-700">
+      <p><strong>Purchase Date:</strong> {report.purchaseDate}</p>
+      <p><strong>Purchase Price:</strong> {report.purchasePrice}</p>
+      <p><strong>Built Date:</strong> {report.builtDate}</p>
+      <p><strong>Market Value:</strong> {report.marketValue}</p>
+      <p><strong>Square Footage:</strong> {report.squareFootage}</p>
+      <p><strong>Beds/Baths:</strong> {report.bedsBaths}</p>
+      <p><strong>Home Type:</strong> {report.homeType}</p>
+      <p><strong>County:</strong> {report.county}</p>
+      <p><strong>Flood Zone:</strong> {report.floodZone}</p>
     </div>
-  );
-}
+    <div className="mt-4 bg-gray-50 p-4 rounded-lg text-sm text-gray-800">
+      <h3 className="font-semibold mb-2 text-gray-900">📊 Mortgage Breakdown</h3>
+      <p><strong>Principal & Interest:</strong> {report.mortgageBreakdown.principalInterest}</p>
+      <p><strong>Property Tax:</strong> {report.mortgageBreakdown.propertyTax}</p>
+      <p><strong>Insurance:</strong> {report.mortgageBreakdown.insurance}</p>
+      <p><strong>Total:</strong> {report.mortgageBreakdown.total}</p>
+    </div>
+  </div>
+)}
+
