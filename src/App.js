@@ -54,6 +54,7 @@ export default function QlearScape() {
 <LaunchCountdown targetISO="2025-10-01T00:00:00-07:00" />
 
 
+
       <div className="max-w-md mx-auto mb-12">
         <input
           type="text"
