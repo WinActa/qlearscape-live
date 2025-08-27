@@ -34,10 +34,10 @@ function Shimmer({ children }) {
   return (
     <span className="relative inline-block">
       <span
-        className="bg-[linear-gradient(110deg,#2563eb,45%,#9333ea,55%,#ec4899)] 
-                   bg-[length:200%_100%] bg-clip-text text-transparent 
-                   transition-[background-position,filter] duration-700 ease-out 
-                   hover:bg-[position:100%_0] 
+        className="bg-[linear-gradient(110deg,#2563eb,45%,#9333ea,55%,#ec4899)]
+                   bg-[length:200%_100%] bg-clip-text text-transparent
+                   transition-[background-position,filter] duration-700 ease-out
+                   hover:bg-[position:100%_0]
                    hover:drop-shadow-[0_0_20px_rgba(147,51,234,0.35)]"
       >
         {children}
@@ -63,4 +63,54 @@ function StarSprite({ className = "", delay = 0 }) {
     <motion.span
       initial={{ opacity: 0 }}
       animate={{ opacity: [0.15, 0.75, 0.15] }}
-      transition={{ duration: 2.2, delay, repe
+      transition={{ duration: 2.2, delay, repeat: Infinity, ease: "easeInOut" }}
+      className={`absolute text-blue-400/80 ${className}`}
+    >
+      <Star size={16} />
+    </motion.span>
+  );
+}
+
+// --- Countdown ---
+export function LaunchCountdown({ targetISO }) {
+  const target = useMemo(() => new Date(targetISO), [targetISO]);
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const { days, hours, minutes, seconds, finished } = useCountdown(now, target);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 6 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.15, duration: 0.6 }}
+      className="mx-auto w-full max-w-2xl mt-6"
+    >
+      <div className="grid grid-cols-4 gap-3 md:gap-4">
+        <TimeCard label="Days" value={days} />
+        <TimeCard label="Hours" value={hours} />
+        <TimeCard label="Minutes" value={minutes} />
+        <TimeCard label="Seconds" value={seconds} />
+      </div>
+
+      <div className="mt-5 inline-flex items-center gap-2 text-blue-600/80">
+        <CalendarDays className="size-4" />
+        <span className="text-sm">Beta launch target: Oct 1, 2025</span>
+      </div>
+
+      {finished && (
+        <div className="mt-4 text-center text-emerald-500/90 text-sm">
+          It’s launch day. Let’s ship something real.
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
+function TimeCard({ label, value }) {
+  return (
+    <div className="rounded-2xl border border-whi
