@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { SparklyTitle, LaunchCountdown } from "./HeroBits";
 
 export default function QlearScape() {
   const [address, setAddress] = useState("");
@@ -46,15 +47,12 @@ export default function QlearScape() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 text-center font-sans p-8">
-      <h1
-        className="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-purple-500 to-pink-500 animate-pulse"
-        style={fadeStyle}
-      >
-        QlearScape
-      </h1>
-      <p className="text-lg mb-10 text-blue-500" style={fadeStyle}>
-        Rewriting the rules of insurance efficiency. Built for agents. Powered by intelligence.
-      </p>
+ <SparklyTitle 
+  title="QlearScape" 
+  subtitle="Built for agents, powered by intelligence" 
+/>
+<LaunchCountdown targetISO="2025-10-01T00:00:00-07:00" />
+
 
       <div className="max-w-md mx-auto mb-12">
         <input
